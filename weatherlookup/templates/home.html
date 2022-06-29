@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--{{ api }}-->
+<br>
+{% if api %}
+    {% if api == "Error" %}
+        There was an error
+    {% else %}
+        <div class="jumbotron">
+          <h1 class="display-4">Temp : {{api.current.temp_c }}</h1>
+          <p class="lead">Location : {{ api.location.name }}, {{ api.location.country }}</p>
+          <hr class="my-4">
+          <p>Condition : {{api.current.condition.text}}</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </p>
+        </div>
+        <br>
+
+    {% endif %}
+{% endif %}
+<!--Air Quality: {{ api.0.AQI }}<br>-->
+<!--Area: {{ api.0.Reportin }}-->
+{% endblock %}
